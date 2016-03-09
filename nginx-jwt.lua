@@ -112,6 +112,7 @@ function M.auth(claim_specs)
 
     -- write the X-Auth-UserId header
     ngx.header["X-Auth-UserId"] = jwt_obj.payload.sub
+    ngx.req.set_header("X-Auth-UserId", jwt_obj.payload.sub)
 end
 
 function M.table_contains(table, item)
